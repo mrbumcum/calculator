@@ -42,30 +42,37 @@ function handleButtonDisplay(event) {
                 }
                 break;
             case 'equals':
+
                 switch(calculator.operator){
                     case '+':
-                       
+                        outputDisplay.textContent = calculator.getSum();
+                        inputDisplay.textContent = calculator.getSum();
+                        calculator.clear();
                         break;
                     case '-':
-                       
+                        outputDisplay.textContent = calculator.getDifference();
+                        inputDisplay.textContent = calculator.getDifference();
+                        calculator.clear(); 
                         break;
                     case '*':
-                        
+                        outputDisplay.textContent = calculator.getProduct();
+                        inputDisplay.textContent = calculator.getProduct();
+                        calculator.clear();
                         break;
                     case '/':
-                       
+                        outputDisplay.textContent = calculator.getQuotient();
+                        inputDisplay.textContent = calculator.getQuotient();
+                        calculator.clear();
                         break;
                     }
                 break;
             default:
                 if(calculator.operator !== '') {
                     inputDisplay.textContent += buttonText;
-                    calculator.operand2 = inputDisplay.textContent;
-
+                    calculator.operand2 = parseFloat(inputDisplay.textContent.split(' ')[2])
                 } else {
                     inputDisplay.textContent += buttonText;
-                    calculator.operand1 = inputDisplay.textContent;
-
+                    calculator.operand1 = parseFloat(inputDisplay.textContent);
                 }
                 break;
     }
