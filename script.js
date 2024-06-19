@@ -1,5 +1,6 @@
 const inputDisplay = document.getElementById('input');
 const outputDisplay = document.getElementById('output');
+const buttons = document.querySelectorAll(".button");
 
 function handleButtonDisplay(event) {
     const button = event.target;
@@ -14,20 +15,58 @@ function handleButtonDisplay(event) {
             case 'sign':
                 break;
             case 'percent':
+                inputDisplay.textContent += buttonText;
                 break;
             case 'add':
-                calculator.operator = '+'
+                if (calculator.operator === '') {
+                    calculator.operator = '+';
+                    inputDisplay.textContent += ' ' + buttonText + ' ';
+                }
                 break;
             case 'subtract':
-                calculator.operator = '-'
+                if (calculator.operator === '') {
+                    calculator.operator = '-';
+                    inputDisplay.textContent += ' ' + buttonText + ' ';
+                }
                 break;
             case 'multiply':
-                calculator.operator = '*'
+                if (calculator.operator === '') {
+                    calculator.operator = '*';
+                    inputDisplay.textContent += ' ' + buttonText + ' ';
+                }
                 break;
             case 'divide':
-                calculator.operator = '/'
+                if (calculator.operator === '') {
+                    calculator.operator = '/';
+                    inputDisplay.textContent += ' ' + buttonText + ' ';
+                }
+                break;
+            case 'equals':
+                switch(calculator.operator){
+                    case '+':
+                       
+                        break;
+                    case '-':
+                       
+                        break;
+                    case '*':
+                        
+                        break;
+                    case '/':
+                       
+                        break;
+                    }
                 break;
             default:
+                if(calculator.operator !== '') {
+                    inputDisplay.textContent += buttonText;
+                    calculator.operand2 = inputDisplay.textContent;
+
+                } else {
+                    inputDisplay.textContent += buttonText;
+                    calculator.operand1 = inputDisplay.textContent;
+
+                }
                 break;
     }
 
@@ -56,21 +95,29 @@ const calculator = {
     },
 
     getDifference: function() {
-        this.result = this.operand1 - this.operand2;
+        if (this.operand2 !== 0) {
+            return this.result = this.operand1 - this.operand2;
+        } else {
+            return 'error';
+        }
     },
 
     getProduct: function() {
-        this.result = this.operand1 * this.operand2;
+        return this.result = this.operand1 * this.operand2;
     },
 
     getQuotient: function() {
-        this.result = this.operand1 / this.operand2;
+        return this.result = this.operand1 / this.operand2;
     },
 
     clear: function() {
         this.operand1 = 0;
         this.operand2 = 0;
         this.operator = '';
-        this.result = 0;
     }
 }
+
+
+buttons.forEach(button => {
+    button.addEventListener('click', handleButtonDisplay);
+});
