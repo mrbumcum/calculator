@@ -13,5 +13,58 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: hsla(60, 12%, 90%, 0.943);
+    background-color: hsla(0, 0%, 100%, 0.943);  
+}
+
+/* Calculator */
+
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 45em;
+    width: 30em;
+    margin: 5em auto;
+    box-shadow: 10px 5px 5px rgb(38, 36, 36);
+    background-color: rgb(55, 50, 50);
+    border-radius: 2em;
+}
+
+.calculator-display {
+    height: 10em;
+    width: 28em;
+    margin: 1em;
+    border-radius: 0.8em;
+    background-color: antiquewhite;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8em;
+    height: 30em;
+    width: 30em;    
+}
+
+.button {
+    height: 7em;
+    width: 7em;
+    border-radius: 100%;
+}
+
+.button.arithmetic {
+    background-color: orange;
+}
+
+.button.operator {
+    background-color: rgb(161, 157, 157);
+}
+
+.button.fill {
+    width: 15em;
+    height: 7em;
+    border-radius: 4em;
 }
