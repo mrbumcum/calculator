@@ -48,21 +48,25 @@ function handleButtonDisplay(event) {
                         outputDisplay.textContent = calculator.getSum();
                         inputDisplay.textContent = calculator.getSum();
                         calculator.clear();
+                        calculator.operand1 = parseFloat(outputDisplay.textContent);
                         break;
                     case '-':
                         outputDisplay.textContent = calculator.getDifference();
                         inputDisplay.textContent = calculator.getDifference();
                         calculator.clear(); 
+                        calculator.operand1 = parseFloat(outputDisplay.textContent);
                         break;
                     case '*':
                         outputDisplay.textContent = calculator.getProduct();
                         inputDisplay.textContent = calculator.getProduct();
                         calculator.clear();
+                        calculator.operand1 = parseFloat(outputDisplay.textContent);
                         break;
                     case '/':
                         outputDisplay.textContent = calculator.getQuotient();
                         inputDisplay.textContent = calculator.getQuotient();
                         calculator.clear();
+                        calculator.operand1 = parseFloat(outputDisplay.textContent);
                         break;
                     }
                 break;
