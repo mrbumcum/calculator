@@ -11,6 +11,8 @@ function handleButtonDisplay(event) {
         switch (button.id) {
             case 'clear':
                 calculator.clear();
+                inputDisplay.textContent = '';
+                outputDisplay.textContent = '';
                 break;
             case 'sign':
                 break;
