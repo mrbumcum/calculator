@@ -15,6 +15,7 @@ function handleButtonDisplay(event) {
                 outputDisplay.textContent = '';
                 break;
             case 'sign':
+                toggleSign();
                 break;
             case 'percent':
                 inputDisplay.textContent += buttonText;
@@ -44,7 +45,6 @@ function handleButtonDisplay(event) {
                 }
                 break;
             case 'equals':
-
                 switch(calculator.operator){
                     case '+':
                         outputDisplay.textContent = calculator.getSum();
@@ -87,7 +87,15 @@ function handleButtonDisplay(event) {
 
 }
 
-
+function toggleSign() {
+    if (calculator.operator === '') {
+        calculator.operand1 = -calculator.operand1;
+        inputDisplay.textContent = calculator.operand1;
+    } else {
+        calculator.operand2 = -calculator.operand2;
+        inputDisplay.textContent = `${calculator.operand1} ${calculator.operator} ${calculator.operand2}`;
+    }
+}
 
 const calculator = {
     operand1: 0,
