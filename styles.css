@@ -32,11 +32,19 @@ body {
 }
 
 .calculator-display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     height: 10em;
     width: 28em;
     margin: 1em;
     border-radius: 0.8em;
     background-color: antiquewhite;
+}
+
+#input, #output {
+    margin: 0.5em 0.5em;
+    font-size: 2.2em;
 }
 
 .buttons-container {
